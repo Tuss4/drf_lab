@@ -61,9 +61,16 @@ WSGI_APPLICATION = 'figexample.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-HOST = os.environ.get("DB_1_PORT_5432_TCP_ADDR")
-HOST_URL = 'postgres://docker:docker@' + HOST + '/docker'
-DATABASES = {'default': dj_database_url.config(default=HOST_URL)}
+# HOST = os.environ.get("DB_1_PORT_5432_TCP_ADDR")
+# HOST_URL = 'postgres://docker:docker@' + HOST + '/docker'
+# DATABASES = {'default': dj_database_url.config(default=HOST_URL)}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 import sys
 if 'test' in sys.argv:
