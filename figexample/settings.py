@@ -105,5 +105,6 @@ REST_FRAMEWORK = {
 
 try:
     from settings_vm import *
+    print "Using VM Settings"
 except ImportError:
     print "No VM Settings found."
