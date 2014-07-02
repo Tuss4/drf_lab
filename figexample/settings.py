@@ -102,3 +102,8 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.TokenAuthentication',
     #     )
 }
+
+try:
+    from settings_vm import *
+except ImportError:
+    print "No VM Settings found."
