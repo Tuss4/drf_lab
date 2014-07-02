@@ -1,4 +1,4 @@
-image: docker.vokalinteractive.com/codelabtj
+image: docker.vokalinteractive.com/codelabtj:v2
 db: orchardup/postgresql
 env:
     - DATABASE_URL={{databaseUrl}}
