@@ -20,9 +20,9 @@ def push():
 def deploy():
     code_dir = '/home/ubuntu/drf_lab'
     with cd(code_dir):
-        sudo("service fig-example stop")
+        sudo("service figexample-run stop")
         run("git pull origin master")
-        sudo("service fig-example start")
+        sudo("service figexample-run start")
 
 
 def prepare_deploy():
