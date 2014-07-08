@@ -17,7 +17,7 @@ except ImportError:
     print "No VM Settings."
 
 
-env.hosts = ['ec2-54-191-20-55.us-west-2.compute.amazonaws.com']
+env.hosts = ['ec2-54-191-119-10.us-west-2.compute.amazonaws.com']
 env.user = 'ubuntu'
 env.key_filename = '/vagrant/codelabtj.cer'
 
