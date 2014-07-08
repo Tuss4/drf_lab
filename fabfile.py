@@ -22,6 +22,7 @@ def deploy():
     with cd(code_dir):
         sudo("service figexample-run stop")
         run("git pull origin master")
+        run("./manage.py migrate")
         sudo("service figexample-run start")
 
 
