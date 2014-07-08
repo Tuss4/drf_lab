@@ -57,52 +57,52 @@ def upload():
 
     os.chdir(origin)
     os.chdir("static/admin/css/")
-    for f in glob.glog("*.css"):
+    for f in glob.glob("*.css"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/css')
 
     os.chdir(origin)
     os.chdir("static/admin/img/")
-    for f in glob.glog("*.gif"):
+    for f in glob.glob("*.gif"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/img')
-    for f in glob.glog("*.png"):
+    for f in glob.glob("*.png"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/img')
 
     os.chdir(origin)
     os.chdir("static/admin/img/gis")
-    for f in glob.glog("*.png"):
+    for f in glob.glob("*.png"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/img/gis')
 
     os.chdir(origin)
     os.chdir("static/admin/js")
-    for f in glob.glog("*.js"):
+    for f in glob.glob("*.js"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/js')
 
     os.chdir(origin)
     os.chdir("static/admin/js/admin")
-    for f in glob.glog("*.js"):
+    for f in glob.glob("*.js"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/admin/js/admin')
 
     os.chdir(origin)
     os.chdir("static/rest_framework/css/")
-    for f in glob.glog("*.css"):
+    for f in glob.glob("*.css"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/rest_framework/css')
 
     os.chdir(origin)
     os.chdir("static/rest_framework/img/")
-    for f in glob.glog("*.png"):
+    for f in glob.glob("*.png"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/rest_framework/png')
 
     os.chdir(origin)
     os.chdir("static/rest_framework/js/")
-    for f in glob.glog("*.js"):
+    for f in glob.glob("*.js"):
         with open(f, 'r') as file_obj:
             upload_file(file_obj, '/rest_framework/js')
 
