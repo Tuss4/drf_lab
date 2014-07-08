@@ -4,7 +4,7 @@ from fabric.api import local, env, cd, run, sudo
 import boto
 from boto import s3
 from boto.s3.key import Key
-
+from figexample.settings import ALLOWED_HOSTS
 
 import os, sys, glob, mimetypes
 
@@ -17,7 +17,7 @@ except ImportError:
     print "No VM Settings."
 
 
-env.hosts = ['ec2-54-191-119-138.us-west-2.compute.amazonaws.com']
+env.hosts = [ALLOWED_HOSTS[0]]
 env.user = 'ubuntu'
 env.key_filename = '/vagrant/codelabtj.cer'
 
