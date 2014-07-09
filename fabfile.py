@@ -38,7 +38,7 @@ def get_ec2_connection():
 
 
 def create_snapshot():
-    conn = get_ec2_connection
+    conn = get_ec2_connection()
     instance_id = conn.get_all_addresses([IP,])[0].instance_id
     git_hash = local("git rev-parse HEAD")
     name = 'codelabtj-{0}-{1}'.format(date.today().strftime("%m-%d-%y"),
