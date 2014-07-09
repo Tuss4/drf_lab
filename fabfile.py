@@ -2,7 +2,7 @@ from fabric.api import local, env, cd, run, sudo, prefix
 
 
 import boto
-from boto import s3
+from boto import s3, ec2
 from boto.s3.key import Key
 from figexample.settings import ALLOWED_HOSTS
 
@@ -21,7 +21,25 @@ env.hosts = [ALLOWED_HOSTS[1]]
 env.user = 'ubuntu'
 env.key_filename = '/vagrant/codelabtj.cer'
 
-BUCKET = 'vokalcodelabtj'
+# BUCKET = 'vokalcodelabtj'
+IP = '54.186.105.150'
+REGION = 'us-west-2c'
+
+
+def get_ec2_connection():
+    return ec2.connect_to_region(REGION,
+        aws_access_key_id=aws_a_key_id,
+        aws_secret_access_key=aws_s_key)
+
+
+def create_snapshot():
+    conn = get_ec2_connection
+    instance_id = conn.get_all_address([IP,])[0].instance_id
+    git_hash = local("git rev-parse HEAD")
+    name = 'codelabtj-{0}-{1}'.format(date.today().strftime("%m-%d-%y"),
+                                      git_hash)
+    return conn.create_image(instance_id, name, no_reboot=True)
+
 
 def test():
     local("./manage.py test")
@@ -117,6 +135,7 @@ def deploy():
             run("echo $PATH")
             run('deactivate')
         sudo("service codelabtj start")
+    create_snapshot()
 
 
 def prepare_deploy():
