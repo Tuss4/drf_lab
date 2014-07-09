@@ -36,22 +36,28 @@ env.key_filename = '/vagrant/codelabtj.cer'
 
 # BUCKET = 'vokalcodelabtj'
 IP = '54.186.105.150'
-REGION = 'us-west-2c'
+REGION = 'us-west-2'
 
 
 def get_ec2_connection():
-    return ec2.connect_to_region(REGION,
+    return ec2.connect_to_region("us-west-2",
         aws_access_key_id=aws_a_key_id,
         aws_secret_access_key=aws_s_key)
 
 
 def create_snapshot():
-    conn = get_ec2_connection()
-    instance_id = conn.get_all_addresses([IP,])[0].instance_id
-    git_hash = local("git rev-parse HEAD")
+    conn = ec2.connect_to_region("us-west-2",
+                                 aws_access_key_id=aws_a_key_id,
+                                 aws_secret_access_key=aws_s_key)  
+    all_inst = conn.get_all_instances()
+    print all_inst[0].instances[0].ip_address
+    # print [[i.instances, i.instances.ip_address] for i in conn.get_all_instances()]
+    print conn.get_all_addresses()
+    img_id = conn.get_all_addresses([IP,])[0].instance_id
+    git_hash = local("git rev-parse --short HEAD")
     name = 'codelabtj-{0}-{1}'.format(date.today().strftime("%m-%d-%y"),
                                       git_hash)
-    return conn.create_image(instance_id, name, no_reboot=True)
+    return conn.create_image(img_id, name, no_reboot=True)
 
 
 def test():
@@ -148,7 +154,7 @@ def deploy():
             run("echo $PATH")
             run('deactivate')
         sudo("service codelabtj start")
-    create_snapshot()
+    # create_snapshot()
 
 
 def prepare_deploy():
