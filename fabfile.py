@@ -114,7 +114,7 @@ def deploy():
         run("git pull origin master")
         run(". env/bin/activate")
         run("./env/bin/python manage.py migrate")
-        run("deactivate")
+        run(". env/bin/deactivate")
         sudo("service codelabtj start")
 
 
