@@ -6,7 +6,12 @@ from boto import s3, ec2
 from boto.s3.key import Key
 from figexample.settings import ALLOWED_HOSTS
 
-import os, sys, glob, mimetypes
+
+import os
+import sys
+import glob
+import mimetypes
+from datetime import date
 
 
 try:
