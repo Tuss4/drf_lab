@@ -1,4 +1,4 @@
-from fabric.api import local, env, cd, run, sudo
+from fabric.api import local, env, cd, run, sudo, prefix
 
 
 import boto
@@ -112,9 +112,10 @@ def deploy():
     with cd(code_dir):
         sudo("service codelabtj stop")
         run("git pull origin master")
-        run(". env/bin/activate")
-        run("./env/bin/python manage.py migrate")
-        run("deactivate")
+        with prefix(". env/bin/activate"):
+            run("./env/bin/python manage.py migrate")
+            run("echo $PATH")
+            run('deactivate')
         sudo("service codelabtj start")
 
 
