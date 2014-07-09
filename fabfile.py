@@ -17,7 +17,7 @@ except ImportError:
     print "No VM Settings."
 
 
-env.hosts = [ALLOWED_HOSTS[0]]
+env.hosts = [ALLOWED_HOSTS[1]]
 env.user = 'ubuntu'
 env.key_filename = '/vagrant/codelabtj.cer'
 
