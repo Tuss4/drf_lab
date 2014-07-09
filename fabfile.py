@@ -113,7 +113,7 @@ def deploy():
         sudo("service codelabtj stop")
         run("git pull origin master")
         run(". env/bin/activate")
-        run("./manage.py migrate")
+        run("./env/bin/python manage.py migrate")
         run("deactivate")
         sudo("service codelabtj start")
 
