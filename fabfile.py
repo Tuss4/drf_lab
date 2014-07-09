@@ -22,6 +22,14 @@ except ImportError:
     print "No VM Settings."
 
 
+try:
+    from figexample.aws_settings import (AWS_STORAGE_BUCKET as tj_bucket,
+                                        AWS_SECRET_ACCESS_KEY as aws_s_key,
+                                        AWS_ACCESS_KEY_ID as aws_a_key_id,)
+except ImportError:
+    print "No AWS Settings."
+
+
 env.hosts = [ALLOWED_HOSTS[1]]
 env.user = 'ubuntu'
 env.key_filename = '/vagrant/codelabtj.cer'

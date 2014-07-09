@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *.sqlite3
 settings_vm.py
+aws_settings.py
 # C extensions
 *.so
 
