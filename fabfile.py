@@ -110,10 +110,10 @@ def upload():
 def deploy():
     code_dir = '/home/ubuntu/drf_lab'
     with cd(code_dir):
-        sudo("service figexample-run stop")
+        sudo("service codelabtj stop")
         run("git pull origin master")
         run("./manage.py migrate")
-        sudo("service figexample-run start")
+        sudo("service codelabtj start")
 
 
 def prepare_deploy():
