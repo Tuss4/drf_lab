@@ -112,7 +112,9 @@ def deploy():
     with cd(code_dir):
         sudo("service codelabtj stop")
         run("git pull origin master")
+        run(". env/bin/activate")
         run("./manage.py migrate")
+        run("deactivate")
         sudo("service codelabtj start")
 
 
