@@ -1,4 +1,4 @@
-from fabric.api import local, env, cd, run, sudo, prefix
+from fabric.api import *
 
 
 import boto
@@ -30,9 +30,10 @@ from datetime import date
 #     print "No AWS Settings."
 
 
-env.hosts = [ALLOWED_HOSTS[1]]
-env.user = 'ubuntu'
+# env.hosts = [ALLOWED_HOSTS[1]]
+# env.user = 'ubuntu'
 # env.key_filename = '/vagrant/codelabtj.cer'
+# env.branch = 'master'
 
 aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
 aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
@@ -40,6 +41,12 @@ aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
 # BUCKET = 'vokalcodelabtj'
 IP = '54.191.128.4'  # Elastic IP
 REGION = 'us-west-2'
+
+
+def staging():
+    env.hosts = [IP,]
+    env.user = 'ubuntu'
+    env.branch = 'master'
 
 
 def get_ec2_connection():
@@ -150,10 +157,11 @@ def upload():
 
 
 def deploy():
+    require("hosts", provide_by=[staging,])
     code_dir = '/home/ubuntu/drf_lab'
     with cd(code_dir):
         sudo("service codelabtj stop")
-        run("git pull origin master")
+        run("git pull origin {0}".format(env.branch))
         with prefix(". env/bin/activate"):
             run("./env/bin/python manage.py migrate")
             run("echo $PATH")
