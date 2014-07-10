@@ -30,8 +30,8 @@ except ImportError:
 #     print "No AWS Settings."
 
 
-# aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
-# aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
+aws_key = os.getenv("AWS_SECRET_ACCESS_KEY", aws_s_key)
+aws_a_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", aws_a_key_id)
 
 # BUCKET = 'vokalcodelabtj'
 IP = '54.191.128.4'  # Elastic IP
@@ -46,8 +46,8 @@ def staging():
 
 def get_ec2_connection():
     return ec2.connect_to_region("us-west-2",
-        aws_access_key_id=aws_a_key_id,
-        aws_secret_access_key=aws_s_key)
+        aws_access_key_id=aws_a_id,
+        aws_secret_access_key=aws_key)
 
 
 def get_git_hash():
