@@ -14,12 +14,12 @@ import mimetypes
 from datetime import date
 
 
-# try:
-#     from figexample.settings_vm import (AWS_STORAGE_BUCKET as tj_bucket,
-#                                         AWS_SECRET_ACCESS_KEY as aws_s_key,
-#                                         AWS_ACCESS_KEY_ID as aws_a_key_id,)
-# except ImportError:
-#     print "No VM Settings."
+try:
+    from figexample.settings_vm import (AWS_STORAGE_BUCKET as tj_bucket,
+                                        AWS_SECRET_ACCESS_KEY as aws_s_key,
+                                        AWS_ACCESS_KEY_ID as aws_a_key_id,)
+except ImportError:
+    print "No VM Settings."
 
 
 # try:
@@ -30,8 +30,8 @@ from datetime import date
 #     print "No AWS Settings."
 
 
-aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
-aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
+# aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
+# aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
 
 # BUCKET = 'vokalcodelabtj'
 IP = '54.191.128.4'  # Elastic IP
