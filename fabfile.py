@@ -55,9 +55,7 @@ def get_git_hash():
 
 
 def create_snapshot():
-    conn = ec2.connect_to_region("us-west-2",
-                                 aws_access_key_id=aws_a_key_id,
-                                 aws_secret_access_key=aws_s_key)  
+    conn = get_ec2_connection()
     all_inst = conn.get_all_instances()
     img_id = conn.get_all_addresses([IP,])[0].instance_id
     git_hash = local("git rev-parse --short HEAD")
