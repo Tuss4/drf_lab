@@ -12,4 +12,4 @@ script:
 deploy:
     bash:
         script:
-            - fab test
+            - fab deploy
