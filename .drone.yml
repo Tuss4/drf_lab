@@ -11,4 +11,4 @@ script:
 deploy:
     bash:
         script:
-                - fab deploy
+            - fab deploy
