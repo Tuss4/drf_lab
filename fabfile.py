@@ -30,8 +30,8 @@ except ImportError:
 #     print "No AWS Settings."
 
 
-aws_key = os.getenv("AWS_SECRET_ACCESS_KEY", aws_s_key)
-aws_a_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", aws_a_key_id)
+aws_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
+aws_a_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
 
 # BUCKET = 'vokalcodelabtj'
 IP = '54.191.128.4'  # Elastic IP

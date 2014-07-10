@@ -1,6 +1,8 @@
 image: mischief/docker-golang
 db: orchardup/postgresql
 env:
+    - AWS_ACCESS_KEY={{awsAccessKey}}
+    - AWS_SECRET_KEY={{awsSecretKey}}
     - DATABASE_URL={{databaseUrl}}
     - DB_BACKEND=sqlite
 script:
