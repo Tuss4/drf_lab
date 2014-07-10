@@ -157,7 +157,7 @@ def upload():
 
 
 def deploy():
-    require("hosts", provide_by=[staging,])
+    require("hosts", provided_by=[staging,])
     code_dir = '/home/ubuntu/drf_lab'
     with cd(code_dir):
         sudo("service codelabtj stop")
