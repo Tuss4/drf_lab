@@ -4,6 +4,7 @@ __pycache__/
 *.sqlite3
 settings_vm.py
 aws_settings.py
+local_user_data
 # C extensions
 *.so
 
