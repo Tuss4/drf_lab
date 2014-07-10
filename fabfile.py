@@ -30,11 +30,6 @@ from datetime import date
 #     print "No AWS Settings."
 
 
-# env.hosts = [ALLOWED_HOSTS[1]]
-# env.user = 'ubuntu'
-# env.key_filename = '/vagrant/codelabtj.cer'
-# env.branch = 'master'
-
 aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
 aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
 
