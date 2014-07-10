@@ -9,3 +9,7 @@ script:
     - pip install -r requirements.txt
     - python manage.py test
     - pwd
+deploy:
+    bash:
+        script:
+            - fab test
