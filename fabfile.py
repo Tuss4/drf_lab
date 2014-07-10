@@ -162,6 +162,8 @@ def deploy():
             run("echo $PATH")
             run('deactivate')
         sudo("service codelabtj start")
+        print "Check env variables."
+        print aws_a_key_id
     create_snapshot()
 
 
