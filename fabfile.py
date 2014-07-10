@@ -159,7 +159,7 @@ def deploy():
             run("echo $PATH")
             run('deactivate')
         sudo("service codelabtj start")
-    create_snapshot()
+    # create_snapshot()
 
 
 def prepare_deploy():
