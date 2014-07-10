@@ -1,5 +1,9 @@
 from rest_framework import permissions
 
+
+import logging
+
+
 admin_methods = ['POST', 'PUT', 'PATCH', 'DELETE']
 
 class AdminOnlyPost(permissions.BasePermission):
@@ -8,3 +12,6 @@ class AdminOnlyPost(permissions.BasePermission):
             return request.user.is_authenticated() and request.user.is_staff
         elif request.method == 'GET':
             return True
+        else:
+            loggly = logging.getLogger('loggly_logs')
+            loggly.debug('Unauthorized user just tried to make an illegal request.')

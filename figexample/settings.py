@@ -104,6 +104,34 @@ REST_FRAMEWORK = {
     #     )
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'loggly': {
+            'format': 'loggly: %(message)s',
+        },
+    },
+    'handlers': {
+        'logging.handlers.SysLogHandler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.SysLogHandler',
+            'facility': 'local5',
+            'formatter': 'loggly',
+        },
+
+    },
+    'loggers': {
+        'loggly_logs': {
+            'handlers': ['logging.handlers.SysLogHandler'],
+            'propagate': True,
+            'format': 'loggly: %(message)s',
+            'level': 'DEBUG',
+        },
+    },
+
+}
+
 try:
     from settings_vm import *
     print "Using VM Settings"
