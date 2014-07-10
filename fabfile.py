@@ -32,7 +32,7 @@ from datetime import date
 
 env.hosts = [ALLOWED_HOSTS[1]]
 env.user = 'ubuntu'
-env.key_filename = '/vagrant/codelabtj.cer'
+# env.key_filename = '/vagrant/codelabtj.cer'
 
 aws_s_key = os.getenv("AWS_SECRET_ACCESS_KEY", "")
 aws_a_key_id = os.getenv("AWS_SECRET_ACCESS_KEY_ID", "")
