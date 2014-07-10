@@ -7,5 +7,8 @@ script:
     - apt-get update -qq
     - apt-get install -y python2.7 python-pip python-psycopg2 libpq-dev python2.7-dev
     - pip install -r requirements.txt
-    - pwd
     - python manage.py test
+deploy:
+    bash:
+        script:
+                - fab deploy
