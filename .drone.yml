@@ -1,4 +1,4 @@
-image: docker.vokalinteractive.com/codelabtj:v2
+image: mischief/docker-golang
 db: orchardup/postgresql
 env:
     - DATABASE_URL={{databaseUrl}}
